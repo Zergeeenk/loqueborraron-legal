@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Conectando con el panel</title>
+<style>body{font-family:system-ui,sans-serif;background:#313338;color:#fff;padding:40px}a{color:#8ea1ff}</style>
+</head>
+<body>
+<h2>Volviendo al panel…</h2>
+<p>Si no pasa nada en unos segundos, <a id="ir" href="#">tocá acá</a> (el panel tiene que estar abierto en esta compu).</p>
+<script>
+  // TikTok vuelve acá con ?code=...&state=...; lo pasamos al panel local, que es quien canjea el código.
+  var destino = "http://localhost:8765/tiktok/callback" + location.search;
+  document.getElementById("ir").href = destino;
+  location.replace(destino);
+</script>
+</body>
+</html>
