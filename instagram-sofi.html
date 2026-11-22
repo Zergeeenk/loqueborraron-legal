@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Conectando con el panel</title>
+<style>body{font-family:system-ui,sans-serif;background:#313338;color:#fff;padding:40px}a{color:#8ea1ff}</style>
+</head>
+<body>
+<h2>Volviendo al panel…</h2>
+<p>Si no pasa nada en unos segundos, <a id="ir" href="#">tocá acá</a> (el panel tiene que estar abierto en esta compu).</p>
+<script>
+  // Página puente de Instagram para el panel del puerto 8766 (subila a una URL https y ponela en canal.json
+  // "instagram.redirect_puente" y en la app de Meta como URI de redireccionamiento). Pasa ?code=&state= al panel local.
+  var destino = "http://localhost:8766/instagram/callback" + location.search;
+  document.getElementById("ir").href = destino;
+  location.replace(destino);
+</script>
+</body>
+</html>
