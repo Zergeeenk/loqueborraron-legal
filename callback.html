@@ -11,7 +11,10 @@
 <p>Si no pasa nada en unos segundos, <a id="ir" href="#">tocá acá</a> (el panel tiene que estar abierto en esta compu).</p>
 <script>
   // TikTok vuelve acá con ?code=...&state=...; lo pasamos al panel local, que es quien canjea el código.
-  var destino = "http://localhost:8765/tiktok/callback" + location.search;
+  // Si el state empieza con "p<puerto>-" (paneles de canales como Carla, 8771), vuelve a ESE panel; si no, a Lo Que Borraron (8765).
+  var m = /[?&]state=p(87[6-9][0-9])-/.exec(location.search);
+  var puerto = m ? m[1] : "8765";
+  var destino = "http://localhost:" + puerto + "/tiktok/callback" + location.search;
   document.getElementById("ir").href = destino;
   location.replace(destino);
 </script>
